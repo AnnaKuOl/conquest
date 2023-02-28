@@ -1,0 +1,98 @@
+@use '../setup/var' as v;
+@use '../setup/mixins';
+    
+.footer{
+    height: 275px;
+    background-color: v.$thirdBG;
+    padding: 79px 0 67px 0;
+    @include mixins.desktop{
+            padding: 60px 0;
+        }   
+    @include mixins.tablet{
+            height: 200px;
+            padding: 40px 0;
+        }   
+    @include mixins.phones{
+            height: auto;
+            padding: 20px 0;
+        }   
+    &__menu{
+        width: 1002px;
+        margin: 0 auto;
+        display: flex;
+        gap: 11.77%;
+        color: v.$ligthTextColor; 
+        @include mixins.desktop{
+            width: 850px;
+        }   
+        @include mixins.laptop{
+            width: 650px;
+            gap: 7%;
+        } 
+        @include mixins.tablet{
+            width: 500px;
+            gap: 3%;
+        }  
+        @include mixins.phones{
+            width: 290px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }  
+    }
+    &__item{
+        @include mixins.flex(stretch, flex-start, column);
+        gap: 32px;
+        position: relative;
+        &:first-child{
+            gap: 8px;
+        } 
+        @include mixins.phones {
+            width: 120px;
+            gap: 8px;
+            @include mixins.flex(stretch, flex-start, column);
+        }           
+    }
+    &__logo{
+        position: relative;
+        top: -15px;
+        @include mixins.phones {
+            width: 100px;
+        }  
+    }
+    &__subtitle{
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: v.$ligthTextColor;
+        @include mixins.laptop{
+            font-weight: 500;
+            font-size: 12px;
+        }
+        @include mixins.tablet{
+            font-weight: 500;
+            font-size: 10px;
+        }
+        
+    }
+    &__lists{
+        @include mixins.flex(stretch, flex-start, column);
+        gap: 15px;
+        @include mixins.tablet{
+            gap: 7px;
+        }
+        }
+    &__list{
+        font-size: 12px;
+        color: v.$secondaryLigthText;
+        @include mixins.laptop{
+            font-size: 10px;
+        }
+    }
+    &__link{
+        color: v.$secondaryLigthText;
+        font-size: 12px;
+        @include mixins.tablet{
+            font-size: 8px;
+        }
+    }     
+}

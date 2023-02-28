@@ -1,0 +1,46 @@
+@use './var' as v;
+@use './mixins';
+
+body{
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: v.$primaryTextColor;
+}
+.container{
+    width: 1368px;
+    margin: 0 auto;
+    padding: 0 98px 0 98px;
+    @include mixins.desktop{
+            width: 1100px;
+            padding: 0 50px 0 50px;
+    }
+    @include mixins.laptop{
+            width: 700px;
+            padding: 0 50px 0 50px;
+    }
+    @include mixins.tablet{
+            width: 500px;
+    }
+    @include mixins.phones{
+            width: 320px;
+    }
+}
+.badge::before{
+    content: '1';
+    width: 13px;
+    height: 13px;
+    background-color: #E6C8B4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    padding: 2px 1px;
+
+    
+}

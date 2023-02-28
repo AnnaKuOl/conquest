@@ -1,0 +1,39 @@
+@use './var' as v;
+    
+@mixin flex($align: stretch, $justify: flex-start, $direction: row){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+
+}
+@mixin line($w: 50px){
+    content: '';
+    width: $w;
+    height: 1px;
+    background-color: #8B8371;
+    display: inline-block;
+    margin-bottom: 6px;    
+}    
+@mixin desktop {
+    @media screen and (max-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: v.$laptop) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (max-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin phones {
+    @media screen and (max-width: v.$phones) {
+        @content;
+    }
+}

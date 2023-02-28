@@ -1,0 +1,76 @@
+@use '../setup/var' as v;
+@use '../setup/mixins';
+
+.header{
+    background-color: v.$primaryBG;
+
+    &__wrapper{
+        @include mixins.flex(center);
+        @include mixins.tablet{
+            flex-wrap: wrap;
+            @include mixins.flex(center, space-between);
+        }
+    }
+    &__logo{
+        padding: 31px 266px 28px 0;
+        @include mixins.laptop{
+            padding-right: 70px;
+        }
+        @include mixins.tablet{
+            padding: 5px 80px 5px 0;
+        }
+        @include mixins.phones{
+            padding: 5px 20px 5px 0;
+        }
+
+    }
+    &__menu{
+        padding: 35px 278px 37px 0px;
+        @include mixins.flex(center, space-between);
+        gap: 65px;
+        @include mixins.desktop{
+            gap: 40px;
+        }
+        @include mixins.laptop{
+            gap: 20px;
+            padding-right: 60px;
+        }
+        @include mixins.tablet{
+            width: 500px;
+            order: 2;
+            padding: 5px 0 25px 0;
+        }
+    }          
+    &__link{
+        color: v.$secondaryTextColor; 
+        line-height: 16px;
+        @include mixins.tablet{
+            font-size: 12px;
+        }
+        @include mixins.phones{
+            font-size: 10px;
+        }
+    }
+    &__icons{
+        padding: 35px 0px 39px 0px;
+        @include mixins.flex(center, space-between);
+        gap: 23px;
+        @include mixins.desktop{
+            gap: 15px;
+        }
+        @include mixins.tablet{
+            padding: 5px 0 5px 0;
+            gap: 10px;
+        }
+        @include mixins.phones{
+            gap: 10px;
+        }        
+    }
+    &__list{
+        height: 16px;
+        position: relative;
+        & img{
+            height: 100%
+        }
+    }
+}
