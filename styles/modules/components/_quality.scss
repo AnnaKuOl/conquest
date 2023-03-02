@@ -1,0 +1,157 @@
+@use '../setup/var' as v;
+@use '../setup/mixins';
+
+
+.quality{
+    height: 519px;
+    width: 100%;
+    padding: 52px 79px;
+    @include mixins.desktop{
+            padding: 81px 50px;
+        } 
+    @include mixins.laptop{
+            height: 360px;
+            padding: 60px 50px;
+    }      
+    @include mixins.tablet{
+            height: 519px;
+            padding: 30px 50px;
+    }      
+    @include mixins.phones{
+            width: 300px;
+            height: 100%;
+            padding: 20px 17%;
+
+    }      
+    background: v.$primaryBG url('../../../assets/img/lines_banner.png') right no-repeat;
+    position: relative;
+    &__bg{
+        width: 35%;
+        height: 100%;
+        background-color: v.$sixBG;
+        background-position: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &__wrapper{
+        @include mixins.flex(center);
+        flex-wrap: wrap;
+        position: relative;
+        @include mixins.tablet{
+            @include mixins.flex(flex-start, center, column); 
+        }
+
+    }
+    &__img{
+        width: 521px;
+        height: 414px; 
+        margin-right: 70px;
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+        @include mixins.desktop{
+            width: 420px;
+            height: auto; 
+        }  
+        @include mixins.laptop{
+            width: 300px;
+            height: auto; 
+            margin-right: 30px;
+        }  
+        @include mixins.tablet{
+            width: 350px;
+            margin-right: 0;
+        }  
+        @include mixins.phones{
+            width: 200px;
+            margin-top: 10px;
+        }  
+    }
+    &__content{
+        width: 376px;
+        @include mixins.flex(stretch, flex-start, column); 
+        @include mixins.laptop{
+            width: 270px;
+        }
+        @include mixins.tablet{
+            width: 320px;
+        }
+        @include mixins.phones{
+            width: 240px;
+        }
+    }
+    &__title{
+        margin-bottom: 38px;
+        @include mixins.laptop{
+            margin-bottom: 20px;
+        }
+        @include mixins.tablet{
+            padding-top: 30px;
+        }
+        @include mixins.phones{
+            padding-top: 25px;
+        }
+    }
+    &__text{
+        margin-bottom: 45px;
+        font-size: 16px;
+        line-height: 150%;
+        color: v.$thirdBG;
+        @include mixins.laptop{
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        @include mixins.tablet{
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        @include mixins.phones{
+            font-size: 10px;
+        }
+    }
+    &__link{
+        background: v.$secondaryBG;
+        }
+    &__pagination{
+        width: 100%;
+        height: 12px;
+        position: absolute;
+        bottom: -20px;
+        left: 473px;
+        @include mixins.flex(center);
+        gap: 20px;
+        @include mixins.desktop{
+            bottom: -70px;
+        }
+        @include mixins.laptop{
+            left: 273px;
+            bottom: -40px;
+        }
+        @include mixins.tablet{
+            left: 220px;
+            bottom: 155px;
+        }
+        @include mixins.phones{
+            left: 120px;
+            bottom: 135px;
+        }
+        & span{
+            font-family: 'Prata';
+            font-size: 12px;
+            color: v.$thirdTextColor;
+        }
+        & button{
+            height: 12px;
+            background-color: inherit;
+            padding: 1px 0;
+        }  
+        & img{
+            height: 10px;            
+        }  
+    }
+    &__arrow-rigth{
+        transform: rotate(-180deg);
+    }
+}

@@ -1,0 +1,8 @@
+@use '../setup/var' as v;
+@use '../setup/mixins';
+
+
+.socials{
+    @include mixins.flex(flex-end);
+    gap: 18px;
+}

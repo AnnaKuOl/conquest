@@ -1,0 +1,88 @@
+@use '../setup/var' as v;
+@use '../setup/mixins';
+
+
+.product{
+    width: 370px;
+    height: 467px;
+    background-color: v.$primaryBG;
+    padding: 40px 28px;
+    @include mixins.flex(stretch, flex-start, column);
+    @include mixins.desktop{
+            width: 280px;
+            height: 410px;
+            padding: 20px 10px;
+        }   
+    @include mixins.laptop{
+            width: 180px;
+            height: 310px;
+    }   
+    @include mixins.tablet{
+            &:last-child{
+                display: none;
+            }
+                
+    }   
+    @include mixins.phones{        
+            &:last-child{
+                display: flex;
+            }
+                
+    }   
+    &__title{
+        font-family: 'Playfair Display';
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.03em;
+        color: v.$thirdTextColor;
+        margin-bottom: 10px;
+        padding-left: 12px;
+    }
+    &__price{
+        height: 12px;
+        font-family: 'Prata', serif;
+        font-size: 12px;
+        color: v.$thirdTextColor;
+        margin-bottom: 2px;
+        padding-left: 12px;
+        & img{
+            height: 10px;
+        }
+    }
+    &__img{
+        width: 313px;
+        height: 313px;
+        background: url('../../../assets/img/Ellipse.png') 50% 50%/contain no-repeat; 
+        @include mixins.desktop{
+            width: 225px;
+            height: 225px;
+        }
+        @include mixins.laptop{
+            width: 160px;
+            height: 160px;
+        }
+    }
+    &__link{
+        color: v.$primaryTextColor;
+        font-family: 'Playfair Display';
+        font-size: 16px;
+        line-height: 21px;
+        margin-top: 19px;
+        padding-left: 60px;
+        &::before{
+            @include mixins.line;
+            margin: 0 18px 4px 0; 
+            @include mixins.laptop{
+                @include mixins.line(30px)
+            }
+            
+        }          
+        @include mixins.desktop{
+            padding-left: 30px;
+        }  
+        @include mixins.laptop{
+            font-size: 14px;
+            padding-left: 20px;
+        }  
+    }
+}

@@ -1,0 +1,72 @@
+@use '../setup/var' as v;
+@use '../setup/mixins';
+
+.popular{
+    background-color: v.$ligthTextColor;
+    height: 720px;
+    @include mixins.flex(stretch, flex-start, column);
+    @include mixins.laptop{
+            height: 500px;
+        }
+    @include mixins.tablet{
+            height: 430px;
+        }
+    @include mixins.phones{
+            height: 100%;
+        }
+    &__header{
+        @include mixins.flex(center, flex-end);
+        padding: 76px 0 52px 0;
+        height: 167px;
+        @include mixins.laptop{
+            padding: 25px 0 42px 0;
+        }
+        @include mixins.tablet{
+            height: 90px;
+            padding: 25px 0;
+        }
+    }
+    &__title{
+        font-family: 'Playfair Display';
+        font-size: 32px;
+        margin-right: 24%;
+        @include mixins.laptop{
+            font-size: 28px;
+        }
+        @include mixins.tablet{
+            font-size: 18px;
+        }
+        @include mixins.phones{
+            font-size: 12px;
+        }
+    }
+    &__link{
+        color: v.$thirdBG;
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 36px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #C4C0B6;
+        @include mixins.laptop{
+            font-size: 14px;
+        }
+        @include mixins.tablet{
+            font-size: 12px;
+            padding-top: 20px;
+        }
+        @include mixins.tablet{
+            font-size: 8px;
+            padding-top: 10px;
+        }
+    }
+    &__wrapper{
+        @include mixins.flex(center, space-between);
+            gap: 30px;
+        @include mixins.desktop{
+            gap: 20px;
+        }
+        @include mixins.phones{
+            @include mixins.flex(center, center, column);
+        }    
+    }
+}
